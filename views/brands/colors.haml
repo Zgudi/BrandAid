@@ -1,0 +1,24 @@
+.colors{:id => "group_colors"}
+  .panel.panel-default.nested
+    .panel-heading.nested
+      .btn.btn-danger.btn-xs.remove_box.right{:id => "close_colors"} X
+      Colors
+    .panel-body.nested
+      .form_container
+        - if @brand.colors.present?
+          - @brand.colors.each do |color|
+            = form_optional_input(@brand,  "colors", color[0], :pick_a_color => true)
+        - elsif @brand.errors.messages[:colors]
+          .form-group.has-error
+            %label.col-lg-4.control-label
+            .col-lg-6
+              %span.help-inline.text-danger
+                = "Colors #{@brand.errors.messages[:colors][0]}"
+        .form_optional_elements_container{:data => {"type" => "color"}}
+        %div.add_brand_optional_element.btn.btn-success.btn-xs{ :data => {"type" => "color", "id" => (@brand.colors.present? ? input_id(@brand.colors) : "1")}} Add color
+        = form_textarea(@brand, "colors_usage")
+
+
+
+
+

@@ -1,0 +1,17 @@
+.form_wrapper
+  .panel.panel-default
+    .panel-heading.strong
+      Brand manager
+    .panel-body
+      .form_container
+        = haml :"flash/notice"
+        %a{ :href => "/brands/index", :class => "btn btn-info"} All brands
+        %a{ :href => "/brands/show?id=#{@brand.id}", :class => "btn btn-primary"} Show
+        %a{ :href => "/brands/destroy?id=#{@brand.id}", :class => "btn btn-danger"} Destroy
+
+.form_wrapper
+  %form#new_brand.form-horizontal.new_brand{"accept-charset" => "UTF-8", :action => "/brands/update?id=#{@brand.id}", :method => "post"}
+    = haml :"brands/form"
+    .text-right
+      %a{ :href => "/brands/index", :class => "btn btn-default"} Cancel
+      %input.btn.btn-primary{:name => "commit", :type => "submit", :value => "Update"}

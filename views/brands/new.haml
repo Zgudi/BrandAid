@@ -1,0 +1,16 @@
+.form_wrapper
+  .panel.panel-default
+    .panel-heading.strong
+      Brand manager
+    .panel-body
+      .form_container
+        = haml :"flash/notice"
+        %a{ :href => "/brands/index", :class => "btn btn-info"} All brands
+
+
+.form_wrapper
+  %form#new_brand.form-horizontal.new_brand{"accept-charset" => "UTF-8", :action => "/brands/create", :method => "post"}
+    = haml :"brands/form"
+    .text-right
+      %a{ :href => "/brands/index", :class => "btn btn-default"} Cancel
+      %input.btn.btn-primary{:name => "commit", :type => "submit", :value => "Create"}

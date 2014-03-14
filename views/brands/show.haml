@@ -1,0 +1,74 @@
+.brand_wrapper
+  .panel.panel-default
+    .panel-heading.strong
+      Brand manager
+    .panel-body
+      = haml :"flash/notice"
+      .form_container
+        %a{ :href => "/brands/edit?id=#{@brand.id}", :class => "btn btn-success"} Edit
+        %a{ :href => "/brands/destroy?id=#{@brand.id}", :class => "btn btn-danger"} Destroy
+        %a{ :href => "/brands/index", :class => "btn btn-info"} All brands
+
+
+.brand_wrapper
+  .panel.panel-default
+    .panel-heading
+      Name
+    .panel-body
+      .brand-group.strong
+        = @brand.name
+      .brand-group
+        .brand-subtitle Use Guidelines
+        = @brand.name_usage
+
+- if @brand.colors_usage.present?
+  .brand_wrapper
+    .panel.panel-default
+      .panel-heading
+        Colors
+      .panel-body
+        .brand-group
+          - @brand.colors.each do |color|
+            .color_group
+              .color_box{:style => "background-color: ##{color[1]}"}
+              .color_label.strong
+                = "##{color[1]}"
+        .brand-group
+          .brand-subtitle Use Guidelines
+          = @brand.colors_usage
+
+- if @brand.fonts.present?
+  .brand_wrapper
+    .panel.panel-default
+      .panel-heading
+        Fonts
+      .panel-body
+        .brand-group
+          - @brand.fonts.each do |font_group|
+            .panel.panel-default.nested
+              .panel-body.nested
+                .brand-group.strong
+                  - if font_group[1]["font"].present?
+                    - font_group[1]["font"].each do |font|
+                      = font[1]
+                .brand-group
+                  .brand-subtitle Purpose
+                  = font_group[1]["purpose"]
+                .brand-group
+                  .brand-subtitle Use Guidelines
+                  = font_group[1]["purpose"]
+
+- if @brand.taglines_usage.present?
+  .brand_wrapper
+    .panel.panel-default
+      .panel-heading
+        Taglines
+      .panel-body
+        - if @brand.taglines.present?
+          .brand-group.strong
+            - @brand.taglines.each_with_index do |tagline, index|
+              .tagline_box
+                = "#{index+1}. #{tagline[1]}"
+          .brand-group
+            .brand-subtitle Use Guidelines
+            = @brand.taglines_usage

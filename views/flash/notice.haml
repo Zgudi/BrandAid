@@ -1,0 +1,7 @@
+- if flash[:success].present?
+  .alert.alert-dismissable.alert-main.alert-success
+    = flash[:success]
+- else
+  - if flash[:error].present?
+    .alert.alert-dismissable.alert-main.alert-danger
+      = flash[:error]

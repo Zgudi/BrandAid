@@ -1,0 +1,14 @@
+#main-container.container
+  .jumbotron
+    %h2
+      %span.logo-font
+        - if current_user.present?
+          = "Hello #{current_user.first_name.capitalize}!"
+        - else
+          Welcome to BRANDAID!
+
+    %p You can navigate using navigation bar at the top.
+    %p
+      %small
+        Feel free to send any questions at:
+        %a{href: "mailto:marcin.szczepanski@polcode.pl"} marcin.szczepanski@polcode.pl

@@ -1,0 +1,33 @@
+.profile_wrapper
+  .panel.panel-default
+    .panel-heading.strong
+      Account manager
+    .panel-body
+      .form_container
+        %a{ :href => "/users/edit", :class => "btn btn-success"} Edit profile
+        %a{ :href => "/users/new_password", :class => "btn btn-warning"} Reset password
+
+.profile_wrapper
+  .panel.panel-default
+    .panel-heading
+      Your profile - basic information
+    .panel-body
+      = haml :"flash/notice"
+      .form_container
+        .profile-group
+          %label.col-lg-4.control-label First Name
+          .col-lg-6
+            = current_user.first_name
+        .profile-group
+          %label.col-lg-4.control-label{:for => "user_login"} Last Name
+          .col-lg-6
+            = current_user.last_name
+        .profile-group
+          %label.col-lg-4.control-label{:for => "user_login"} Email
+          .col-lg-6
+            = current_user.email
+        .profile-group
+          %label.col-lg-4.control-label{:for => "user_login"} Login
+          .col-lg-6
+            = current_user.login
+

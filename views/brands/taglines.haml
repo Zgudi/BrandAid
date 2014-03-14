@@ -1,0 +1,19 @@
+.colors{:id => "group_taglines"}
+  .panel.panel-default.nested
+    .panel-heading.nested
+      .btn.btn-danger.btn-xs.remove_box.right{:id => "close_taglines"} X
+      Taglines
+    .panel-body.nested
+      .form_container
+        - if @brand.taglines.present?
+          - @brand.taglines.each do |tagline|
+            = form_optional_input(@brand,  "taglines", tagline[0])
+        - elsif @brand.errors.messages[:taglines]
+          .form-group.has-error
+            %label.col-lg-4.control-label
+            .col-lg-6
+              %span.help-inline.text-danger
+                = "Taglines #{@brand.errors.messages[:taglines][0]}"
+      .form_optional_elements_container{:data => {"type" => "tagline"}}
+      %div.add_brand_optional_element.btn.btn-success.btn-xs{ :data => {"type" => "tagline", "id" => (@brand.taglines.present? ? input_id(@brand.taglines) : "1")}} Add tagline
+      = form_textarea(@brand, "taglines_usage")

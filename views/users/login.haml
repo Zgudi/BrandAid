@@ -1,0 +1,14 @@
+.form_wrapper
+  .panel.panel-default
+    .panel-heading
+      Log In
+    .panel-body
+      = haml :"flash/notice"
+      .form_container
+        %form#new_user.form-horizontal.new_user{"accept-charset" => "UTF-8", :action => "/users/authenticate", :method => "post"}
+          = form_input(@person, "login")
+          = form_input(@person, "password", :password => true)
+          .text-right
+            %input.btn.btn-primary{:name => "commit", :type => "submit", :value => "Log In"}
+      
+      

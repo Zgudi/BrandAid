@@ -1,0 +1,38 @@
+.panel.panel-default.nested
+  .panel-heading.nested
+    Brand Name
+  .panel-body.nested
+    .form_container
+      = form_input(@brand, "name")
+      = form_textarea(@brand, "name_usage")
+
+  -#TODO
+  -#Logos
+
+  .panel-heading.nested
+    Colors
+  .panel-body.nested
+    .form_container
+      - unless @brand.colors_usage.nil?
+        = haml :"brands/colors"
+      .form_optional_elements_container{:data => {"type" => "colors"}}
+      %div.add_brand_optional_element.btn.btn-success.btn-xs{:style => (@brand.colors_usage.nil? ?  "display: inline-block" : "display: none"), :data => {"type" => "colors"}} Add colors
+
+  .panel-heading.nested
+    Fonts
+  .panel-body.nested
+    .form_container
+      - unless @brand.fonts.nil?
+        - @brand.fonts.each do |fonts_group|
+          = haml :"brands/fonts_group", :locals => {:id => fonts_group[0]}
+      .form_optional_elements_container{:data => {"type" => "fonts_group"}}
+      %div.add_brand_optional_element.btn.btn-success.btn-xs{ :data => {"type" => "fonts_group", "id" => (@brand.fonts.present? ? input_id(@brand.fonts) : "1")}} Add fonts
+
+  .panel-heading.nested
+    Taglines
+  .panel-body.nested
+    .form_container
+      - unless @brand.taglines_usage.nil?
+        = haml :"brands/taglines"
+      .form_optional_elements_container{:data => {"type" => "taglines"}}
+      %div.add_brand_optional_element.btn.btn-success.btn-xs{:style => (@brand.taglines_usage.nil? ? "display: inline-block" : "display: none"), :data => {"type" => "taglines"}} Add taglines

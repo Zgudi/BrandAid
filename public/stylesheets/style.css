@@ -1,0 +1,167 @@
+form{
+   width: 100%;
+}
+
+.form_wrapper{
+    width: 700px;
+    margin: 20px;
+}
+
+.profile_wrapper {
+    width: 500px;
+    margin: 20px;
+}
+
+.brand_wrapper {
+    width: 800px;
+    margin: 20px;
+}
+
+.brand_wrapper .panel-heading {
+    color: #414141;
+    font-size: 20px;
+}
+
+.brand_wrapper .brand-group{
+    color: #414141;
+}
+
+
+.profile-group {
+   display: block;
+    float: left;
+    position: relative;
+    height: 25px;
+    width: 100%;
+}
+
+header.navbar{
+    position: relative;
+    background-color: #14365C;
+    color: #999999;
+    top: 0;
+    border: 0px;
+    margin-bottom: 20px;
+    min-height: 50px;
+    border-radius: 0;
+}
+
+header.navbar .navbar-header a{
+    font-size: 22px;
+    letter-spacing: 4px;
+}
+
+
+header.navbar nav ul li a{
+    color: #d6d6d6;
+}
+
+header.navbar nav ul{
+    margin-left: 50px;
+}
+
+
+header.navbar nav ul li a:hover{
+    color: #ffffff;
+}
+
+header.navbar nav ul li.navbar-text{
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+header.navbar nav ul li.navbar-text.text-left{
+    margin-left: 15px;
+}
+
+header.navbar nav ul li a.login, header.navbar nav ul li a.logged_in{
+    font-weight: bold;
+}
+
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+    text-decoration: none !important;
+    background-color: #2362a0 !important;
+}
+
+.navbar-nav.nav-user {
+    background-color: #112D4C;
+    border-left: 1px solid #999999;
+    border-right: 1px solid #999999;
+}
+
+.panel-heading.nested {
+    padding: 5px 15px;
+}
+
+.panel-body.nested {
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.panel-default.nested .btn-xs.add_brand_optional_element,
+.panel-default.nested .btn-xs.add_brand_nested_optional_element{
+    margin: 5px 0px 10px 35%;
+}
+
+.panel-heading .remove_box{
+    margin-top: -1px;
+}
+
+.panel-body .remove{
+    margin-top: 5px;
+}
+
+.right {
+    float: right;
+}
+
+.pick-a-color-markup .color-preview.current-color {
+    margin-bottom: 0px !important;
+}
+
+.pick-a-color-markup .color-menu-tabs {
+    padding: 10px 3px 7px 10px !important;
+}
+
+.color_box {
+    float: left;
+    border: 1px solid #dddddd;
+    height: 20px;
+    width: 50px;
+    margin: 0px 10px 0px 0px;
+}
+
+.color_label {
+    float: left;
+    margin: 0px 20px 0px 0px;
+}
+
+.tagline_box {
+    width: 100%;
+    float: left;
+}
+
+.brand-group {
+    display: block;
+    float: left;
+    position: relative;
+    width: 100%;
+    margin: 5px 0px 0px 0px;
+}
+
+.brand-subtitle {
+    font-size: 16px;
+    border-bottom: 1px solid #cacaca;
+    width: 95%;
+    padding: 0px;
+    margin: 25px 15px 10px 0px
+}
+
+.strong {
+    font-weight: bold;
+}
+
+.actions {
+    width: 100px;
+}

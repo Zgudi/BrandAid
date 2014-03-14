@@ -1,0 +1,30 @@
+- @id = id if defined?(id)
+
+.fonts_group{:id => "group_#{name(@brand)}_fonts_group_#{@id}"}
+  .panel.panel-default.nested
+    .panel-heading.nested
+      .btn.btn-danger.btn-xs.remove_box.right{:id => "close_#{name(@brand)}_fonts_group_#{@id}"} X
+      Fonts group
+    .panel-body.nested
+      .form_container
+        - if @brand.fonts.present?
+          - if @brand.fonts[@id]["font"].present?
+            - sub_id = input_id(@brand.fonts[@id]["font"])
+            - @brand.fonts[@id]["font"].each do |font|
+              = form_nested_optional_select(@brand, "fonts", @id, "font", font[0])
+          - else
+            - sub_ud = "1"
+            - if @brand.errors.messages[:"fonts_#{id}"]
+              .form-group.has-error
+                %label.col-lg-4.control-label
+                .col-lg-6
+                  %span.help-inline.text-danger
+                    = "Fonts #{@brand.errors.messages[:"fonts_#{id}"][0]}"
+        .form_nested_optional_elements_container{:data => {"type" => "font", "group_id" => @id}}
+        %div.add_brand_nested_optional_element.btn.btn-success.btn-xs{ :data => {"type" => "font", "group-id" => @id, "id" => sub_id}} Add font
+        = form_nested_input(@brand, "fonts",  @id, "purpose")
+        = form_nested_textarea(@brand, "fonts", @id, "fonts_usage")
+
+
+
+

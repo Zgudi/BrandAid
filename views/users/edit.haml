@@ -1,0 +1,26 @@
+.form_wrapper
+  .panel.panel-default
+    .panel-heading.strong
+      Account manager
+    .panel-body
+      .form_container
+        %a{ :href => "/users/profile", :class => "btn btn-primary"} Show profile
+        %a{ :href => "/users/new_password", :class => "btn btn-warning"} Reset password
+
+.form_wrapper
+  .panel.panel-default
+    .panel-heading
+      Please correct your data account
+    .panel-body
+      = haml :"flash/notice"
+      .form_container
+        %form#new_user.form-horizontal.new_user{"accept-charset" => "UTF-8", :action => "/users/update", :method => "post"}
+          = form_input(@person, "first_name")
+          = form_input(@person, "last_name")
+          = form_input(@person, "email")
+          = form_input(@person, "login")
+          .text-right
+            %a{ :href => "/users/profile", :class => "btn btn-default"} Cancel
+            %input.btn.btn-primary{:name => "commit", :type => "submit", :value => "Update"}
+
+
